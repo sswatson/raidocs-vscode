@@ -2,8 +2,9 @@
   "name": "raidocs",
 	"displayName": "raidocs",
 	"description": "Tools for authoring in the RelationalAI documentation system",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "sswatson",
+	"icon": "images/logo.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/sswatson/raidocs-vscode"

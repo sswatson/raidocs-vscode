@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 					selectedArticle.file
 				);
 				const contents = Buffer.from(contentBytes).toString();
-				const headers = [];
+				const headers = [{label: '(no section)', ref: ''}];
 				for (let line of contents.split('\n')) {
 					if (line.match(/^#+ /)) { // match header lines
 						const ref = line
@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 					if (editor) {
 						editor.edit(edit => edit.insert(
 							editor.selection.active,
-							'/' + selectedArticle.label + '/#' + selectedHeader.ref
+							'/' + selectedArticle.label + '#' + selectedHeader.ref
 						));
 					}
 				}

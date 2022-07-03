@@ -2,7 +2,7 @@
   "name": "raidocs",
 	"displayName": "raidocs",
 	"description": "Tools for authoring in the RelationalAI documentation system",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "sswatson",
 	"icon": "images/logo.png",
 	"repository": {

@@ -61,7 +61,9 @@ export function activate(context: vscode.ExtensionContext) {
 					if (editor) {
 						editor.edit(edit => edit.insert(
 							editor.selection.active,
-							'/' + selectedArticle.label + '#' + selectedHeader.ref
+							'/' + selectedArticle.label + 
+							(selectedHeader.ref ? '#' : '') + 
+  						 selectedHeader.ref
 						));
 					}
 				}

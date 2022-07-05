@@ -44,11 +44,14 @@ export function activate(context: vscode.ExtensionContext) {
 				const headers = [{label: '(no section)', ref: ''}];
 				for (let line of contents.split('\n')) {
 					if (line.match(/^#+ /)) { // match header lines
-						const ref = line
-							.replace(/^#+ /, '')
-							.toLowerCase()
-							.replace(/[^a-zA-Z ]/g, '')
-							.replace(/ /g, '-');
+						const customId = line.match(/ \[#([^]+?)]$/);
+						const ref = customId
+							? customId[1]
+							: line
+									.replace(/^#+ /, '')
+									.toLowerCase()
+									.replace(/[^a-zA-Z ]/g, '')
+									.replace(/ /g, '-');
 						headers.push({
 							label: line,
 							ref

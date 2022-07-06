@@ -1,4 +1,6 @@
 import * as vscode from 'vscode';
+const GitHubSlugger = require('github-slugger');
+const slugger = new GitHubSlugger();
 
 // @ts-ignore
 async function* walk(dir: vscode.Uri) {
@@ -42,18 +44,20 @@ export function activate(context: vscode.ExtensionContext) {
 				);
 				const contents = Buffer.from(contentBytes).toString();
 				const headers = [{label: '(no section)', ref: ''}];
+				slugger.reset();
 				for (let line of contents.split('\n')) {
 					if (line.match(/^#+ /)) { // match header lines
 						const customId = line.match(/ \[#([^]+?)]$/);
-						const ref = customId
-							? customId[1]
-							: line
-									.replace(/^#+ /, '')
-									.toLowerCase()
-									.replace(/[^a-zA-Z ]/g, '')
-									.replace(/ /g, '-');
+						let ref: string;
+						if (customId) {
+							ref = customId[1];
+						} else {
+							ref = slugger.slug(line.replace(/^#+ /, '').trim());
+						}
 						headers.push({
-							label: line,
+							label: line
+								.replace(/^#+/, (m) => m.replace(/#/g, '  '))
+								.replace(/^  /, ''),
 							ref
 						});
 					}

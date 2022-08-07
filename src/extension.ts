@@ -17,24 +17,33 @@ async function* walk(dir: vscode.Uri) {
 export function activate(context: vscode.ExtensionContext) {
 
 	const refCommand = vscode.commands.registerCommand(
-		'raidocs.insertReference', 
+		'raidocs.insertReference',
 		async () => {
 			const folders = vscode.workspace.workspaceFolders;
 			if (!folders || !folders.length) {
 				vscode.window.showInformationMessage('no folder open');
 				return;
 			}
+			const thisArticle = vscode.window.activeTextEditor?.document.fileName;
 			const rootDir = folders[0].uri;
 			const pagesDir = vscode.Uri.joinPath(rootDir, "site/pages");
-			let articles = [];
+			let articles: {label: string, file: vscode.Uri, currentFile: boolean}[] = [];
 			for await (let file of walk(pagesDir)) {
 				const fileName = file.toString();
 				if (fileName.endsWith(".md")) {
-					articles.push({
-						label:
-						fileName.split('site/pages')[1].replace(/.md$/g, '').slice(1),
-						file
-					});
+					const label = fileName.split('site/pages')[1].replace(/.md$/g, '').slice(1);
+					const currentFile = Boolean(thisArticle && fileName.endsWith(thisArticle));
+					if (label !== 'index') {
+						const newArticle = {
+							label,
+							file,
+							currentFile,
+						};
+						articles.push(newArticle);	
+						if (newArticle.currentFile) {
+							articles.unshift(newArticle);
+						}
+					}
 				}
 			}
 			const selectedArticle = await vscode.window.showQuickPick(articles);
@@ -66,12 +75,27 @@ export function activate(context: vscode.ExtensionContext) {
 				if (selectedHeader) {
 					const editor = vscode.window.activeTextEditor;
 					if (editor) {
-						editor.edit(edit => edit.insert(
-							editor.selection.active,
-							'/' + selectedArticle.label + 
-							(selectedHeader.ref ? '#' : '') + 
-  						 selectedHeader.ref
-						));
+						const { active, anchor } = editor.selection;
+						const href = (selectedArticle.currentFile
+									? '' 
+									: '/' + selectedArticle.label) + 
+								(selectedHeader.ref 
+									? '#' 
+									: '') + 
+								 selectedHeader.ref
+						if (active.isEqual(anchor)) {
+							editor.edit(edit => edit.insert(
+								editor.selection.active,
+								href
+							));
+						} else {
+							const selection = new vscode.Range(active, anchor);
+							const selectedText = editor.document.getText(selection);
+							editor.edit(edit => edit.replace(
+								selection,
+								`[${selectedText}](${href})`
+							));
+						}
 					}
 				}
 			}

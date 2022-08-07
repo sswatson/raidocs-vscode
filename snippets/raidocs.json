@@ -23,7 +23,7 @@
   "Alert": {
 		"prefix": "alert",
 		"body": [
-			"<Alert icon=\"🔎\">",
+			"<Alert type=\"${1|default,info,warning,error|}\" icon=\"${2|🔎,👇,⚠,❌|}\">",
 			"  $0",
 			"</Alert>"
 		],

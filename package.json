@@ -2,7 +2,7 @@
   "name": "raidocs",
   "displayName": "raidocs",
   "description": "Tools for authoring in the RelationalAI documentation system",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "publisher": "sswatson",
   "icon": "images/logo.png",
   "repository": {
@@ -18,7 +18,8 @@
   "activationEvents": [
     "onCommand:raidocs.insertReference",
     "onCommand:raidocs.insertImage",
-    "onCommand:raidocs.runCodeCells"
+    "onCommand:raidocs.runCodeCells",
+    "onCommand:raidocs.startServer"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -34,6 +35,10 @@
       {
         "command": "raidocs.runCodeCells",
         "title": "raidocs: Run Code Cells"
+      },
+      {
+        "command": "raidocs.startServer",
+        "title": "raidocs: Start Server"
       }
     ],
     "snippets": [

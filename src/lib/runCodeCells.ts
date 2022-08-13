@@ -16,7 +16,6 @@ const runCodeCells = async () => {
 		}
 	}
 	if (!raidocsTerminal) {
-		newTerm = true;
 		raidocsTerminal = vscode.window.createTerminal('raidocs parser');
 	}
 	if (newTerm) {

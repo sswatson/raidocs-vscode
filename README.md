@@ -28,3 +28,7 @@ The command "raidocs: Start Server" uses the integrated terminal to run `pnpm de
 ## Running Code Cells
 
 The command "raidocs: Run Code Cells" uses the integrated terminal to run raidocs parser on the currently open article. This requires that you have the appropriate credentials in `~/.rai/config` on your system.
+
+## Checking references
+
+The command "raidocs: Check References" uses the integrated terminal to run the reference-checking script on the whole site.

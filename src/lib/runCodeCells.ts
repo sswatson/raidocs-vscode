@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { getTerminal } from './utils';
 
 const runCodeCells = async () => {
 	const thisArticle = vscode.window.activeTextEditor?.document.fileName.split('site/pages')[1];
@@ -6,23 +7,12 @@ const runCodeCells = async () => {
 		vscode.window.showErrorMessage('This document is not a markdown file in site/pages');
 		return;
 	}
-	let raidocsTerminal;
-	let newTerm = true;
-	for (let terminal of vscode.window.terminals) {
-		if (terminal.name === 'raidocs parser') {
-			raidocsTerminal = terminal;
-			newTerm = false;
-			break;
-		}
+	const { terminal, openedNew } = getTerminal('raidocs code cells');
+	if (openedNew) {
+		terminal.sendText('nvm use 14.19.0');
 	}
-	if (!raidocsTerminal) {
-		raidocsTerminal = vscode.window.createTerminal('raidocs parser');
-	}
-	if (newTerm) {
-		raidocsTerminal.sendText('nvm use 14.19.0');
-	}
-  raidocsTerminal.sendText(`node tools/raidocs-parser.js -p site/pages${thisArticle}`);
-	raidocsTerminal.show();
+  terminal.sendText(`node tools/raidocs-parser.js -p site/pages${thisArticle}`);
+	terminal.show();
 }
 
 export default runCodeCells;

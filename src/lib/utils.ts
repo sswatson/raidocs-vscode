@@ -10,3 +10,19 @@ export async function* walk(dir: vscode.Uri) {
 		}
 	}
 }
+
+export function getTerminal(name: string) {
+	let term;
+	let openedNew = true;
+	for (let terminal of vscode.window.terminals) {
+		if (terminal.name === name) {
+			term = terminal;
+			openedNew = false;
+			break;
+		}
+	}
+	return {
+		terminal: term || vscode.window.createTerminal(name),
+		openedNew,
+	};
+}

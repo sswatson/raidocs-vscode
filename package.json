@@ -2,7 +2,7 @@
   "name": "raidocs",
   "displayName": "raidocs",
   "description": "Tools for authoring in the RelationalAI documentation system",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "publisher": "sswatson",
   "icon": "images/logo.png",
   "repository": {
@@ -17,7 +17,8 @@
   ],
   "activationEvents": [
     "onCommand:raidocs.insertReference",
-    "onCommand:raidocs.insertImage"
+    "onCommand:raidocs.insertImage",
+    "onCommand:raidocs.runCodeCells"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -29,6 +30,10 @@
       {
         "command": "raidocs.insertImage",
         "title": "raidocs: Insert Image"
+      },
+      {
+        "command": "raidocs.runCodeCells",
+        "title": "raidocs: Run Code Cells"
       }
     ],
     "snippets": [

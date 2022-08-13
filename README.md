@@ -20,3 +20,7 @@ As an alternative to the `image` snippet, you can run a command that copies an i
 ## References
 
 You can use the extension to create references to sections of other articles. Do `command+shift+P` to open the command palette, and start typing "insert reference". Select the option called "raidocs: Insert Reference" when it appears. You'll get a list of articles on the site, which you can filter by typing search characters. When you select the article you want to link, a list of headers within that article will appear. When you select the relevant section header, the path for that section is inserted.
+
+## Running Code Cells
+
+The command "raidocs: Run Code Cells" uses the integrated terminal to run raidocs parser on the currently open article. This requires that you have the appropriate credentials in `~/.rai/config` on your system.

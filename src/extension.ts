@@ -17,7 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 	const runCodeCellsCommand = vscode.commands.registerCommand(
 		'raidocs.runCodeCells',
-		runCodeCells
+		runCodeCells,
+	);
+	const runAllCodeCellsCommand = vscode.commands.registerCommand(
+		'raidocs.runAllCodeCells',
+		() => runCodeCells({ all: true }),
 	);
 	const startServerCommand = vscode.commands.registerCommand(
 		'raidocs.startServer',
@@ -30,6 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(refCommand);
 	context.subscriptions.push(imageCommand);
 	context.subscriptions.push(runCodeCellsCommand);
+	context.subscriptions.push(runAllCodeCellsCommand);
 	context.subscriptions.push(startServerCommand);
 	context.subscriptions.push(checkReferencesCommand);
 }

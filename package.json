@@ -2,7 +2,7 @@
   "name": "raidocs",
   "displayName": "raidocs",
   "description": "Tools for authoring in the RelationalAI documentation system",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "publisher": "sswatson",
   "icon": "images/logo.png",
   "repository": {
@@ -19,6 +19,7 @@
     "onCommand:raidocs.insertReference",
     "onCommand:raidocs.insertImage",
     "onCommand:raidocs.runCodeCells",
+    "onCommand:raidocs.runAllCodeCells",
     "onCommand:raidocs.startServer",
     "onCommand:raidocs.checkReferences"
   ],
@@ -35,7 +36,11 @@
       },
       {
         "command": "raidocs.runCodeCells",
-        "title": "raidocs: Run Code Cells"
+        "title": "raidocs: Run Code Cells up to Cursor"
+      },
+      {
+        "command": "raidocs.runAllCodeCells",
+        "title": "raidocs: Run All Code Cells"
       },
       {
         "command": "raidocs.startServer",

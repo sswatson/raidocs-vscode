@@ -1,6 +1,6 @@
 # raidocs README
 
-The raidocs extension provides tools to support documentation authors at RelationalAI.
+The raidocs extension provides tools to support documentation authors at RAI.
 
 ## Snippets
 

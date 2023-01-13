@@ -1,7 +1,7 @@
 
 # Updating this extension
 
-To publish a new version increment the version number in `package.json` and then  do 
+To publish a new version increment the version number in `package.json` and then do 
 
 ```
 vsce package

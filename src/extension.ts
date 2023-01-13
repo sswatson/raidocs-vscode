@@ -4,6 +4,7 @@ import insertReference from './lib/insertReference';
 import runCodeCells from './lib/runCodeCells';
 import startServer from './lib/startServer';
 import checkReferences from './lib/checkReferences';
+import { newGlossaryEntry, glossSelection } from './lib/glossary';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -31,12 +32,22 @@ export function activate(context: vscode.ExtensionContext) {
 		'raidocs.checkReferences',
 		checkReferences
 	);
+	const newGlossaryEntryCommand = vscode.commands.registerCommand(
+		'raidocs.newGlossaryEntry',
+		newGlossaryEntry
+	);
+	const glossSelectionCommand = vscode.commands.registerCommand(
+		'raidocs.glossSelection',
+		glossSelection
+	);
 	context.subscriptions.push(refCommand);
 	context.subscriptions.push(imageCommand);
 	context.subscriptions.push(runCodeCellsCommand);
 	context.subscriptions.push(runAllCodeCellsCommand);
 	context.subscriptions.push(startServerCommand);
 	context.subscriptions.push(checkReferencesCommand);
+	context.subscriptions.push(newGlossaryEntryCommand)
+	context.subscriptions.push(glossSelectionCommand);
 }
 
 // this method is called when your extension is deactivated

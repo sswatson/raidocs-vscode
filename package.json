@@ -21,7 +21,9 @@
     "onCommand:raidocs.runCodeCells",
     "onCommand:raidocs.runAllCodeCells",
     "onCommand:raidocs.startServer",
-    "onCommand:raidocs.checkReferences"
+    "onCommand:raidocs.checkReferences",
+    "onCommand:raidocs.glossSelection",
+    "onCommand:raidocs.glossDocument"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -49,6 +51,14 @@
       {
         "command": "raidocs.checkReferences",
         "title": "raidocs: Check References"
+      },
+      {
+        "command": "raidocs.glossSelection",
+        "title": "raidocs: Gloss Selection"
+      },
+      {
+        "command": "raidocs.glossDocument",
+        "title": "raidocs: Gloss Document"
       }
     ],
     "snippets": [

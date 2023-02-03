@@ -15,7 +15,7 @@ const runCodeCells = async ({ all }={ all: false }) => {
 	let currentPosition = activeEditor.selection.active;
 	const { terminal, openedNew } = getTerminal('raidocs code cells');
 	if (openedNew) {
-		terminal.sendText('nvm use 14.19.0');
+		terminal.sendText('nvm use 18.13.0');
 	}
 	const pathOpt = `-p site/pages${thisArticle}`;
 	const lineNumberOpt = all ? '' : `-l ${currentPosition.line}`;

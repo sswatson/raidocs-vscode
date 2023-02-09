@@ -13,7 +13,7 @@ const insertImage = async () => {
 			.document
 			.fileName
 			.replace("pages", "public")
-			.replace(/\.md$/,'');
+			.replace(/\.mdx$/,'');
 		const selectedUris = await vscode.window.showOpenDialog({
 			canSelectMany: false,
 			openLabel: "Select Image",

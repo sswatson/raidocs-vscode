@@ -40,5 +40,3 @@ It is recommended that you get the following extensions for additional functiona
 1. **RelationalAI** at `https://github.com/RelationalAI/relationalai-vscode` (a private company repo).
 1. **Table Editor**. *Edit CSV/Markdown/HTML/JSON tables with a spreadsheet-like interface.* This makes dealing with Markdown and HTML tables much easier.
 1. **MDX**. *Language support for MDX.*
-
-To make MDX syntax highlighting work in the Markdown files in the repo, open the command palette and find *Preferences: Open User Settings*. Use the search bar to pull up "Files: Associations". Click "Add item" and put `*.md` for the key and `mdx` for the value. This step is necessary because the files us an `.md` extension but are actually MDX files.

@@ -15,8 +15,8 @@ const insertReference = async () => {
 	let articles: {label: string, file: vscode.Uri, currentFile: boolean}[] = [];
 	for await (let file of walk(pagesDir)) {
 		const fileName = file.toString();
-		if (fileName.endsWith(".md")) {
-			const label = fileName.split('site/pages')[1].replace(/.md$/g, '').slice(1);
+		if (fileName.endsWith(".mdx")) {
+			const label = fileName.split('site/pages')[1].replace(/.mdx$/g, '').slice(1);
 			const currentFile = Boolean(thisArticle && fileName.endsWith(thisArticle));
 			if (label !== 'index') {
 				const newArticle = {

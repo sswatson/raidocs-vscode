@@ -2,7 +2,7 @@
   "name": "raidocs",
   "displayName": "raidocs",
   "description": "Tools for authoring in the RAI documentation system",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "publisher": "sswatson",
   "icon": "images/logo.png",
   "repository": {

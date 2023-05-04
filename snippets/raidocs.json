@@ -33,7 +33,7 @@
 		"prefix": "image",
 		"body": [
 			"<ImgFig",
-			"  src=\"${RELATIVE_FILEPATH/(site\\/pages|\\.md)//g}/${1:image.svg}\">",
+			"  src=\"${RELATIVE_FILEPATH/(site\\/pages|\\.mdx)//g}/${1:image.svg}\">",
 			"  alt=\"${2:image description}\"",
 			"  width=\"${3:90%}\"/>"
 			],

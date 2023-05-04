@@ -6,7 +6,7 @@ const runCodeCells = async ({ all }={ all: false }) => {
 	if (!activeEditor) return;
 	let document = activeEditor.document;
 	const thisArticle = document.fileName.split('site/pages')[1];
-	if (!thisArticle || !thisArticle.endsWith(".md")) {
+	if (!thisArticle || !thisArticle.endsWith(".mdx")) {
 		vscode.window.showErrorMessage(
 			'This document is not a markdown file in site/pages'
 		);

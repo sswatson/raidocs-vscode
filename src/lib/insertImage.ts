@@ -18,7 +18,7 @@ const insertImage = async () => {
 			canSelectMany: false,
 			openLabel: "Select Image",
 			filters: {
-				'Images': ['png', 'jpg', 'jpeg', 'svg']
+				'Images': ['png', 'jpg', 'jpeg', 'svg', 'webp']
 			},
 		});
 		if (selectedUris) {

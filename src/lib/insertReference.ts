@@ -3,6 +3,16 @@ const GitHubSlugger = require('github-slugger');
 const slugger = new GitHubSlugger();
 import { walk } from './utils';
 
+function extractHeaderText(line: string) {
+  // Remove Markdown header prefixes (e.g., ##)
+  const text = line.replace(/^#+\s*/, '');
+
+  // Replace Markdown links with just their text content
+  const cleanText = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+
+  return cleanText.trim();
+}
+
 const insertReference = async () => {
 	const folders = vscode.workspace.workspaceFolders;
 	if (!folders || !folders.length) {
@@ -46,7 +56,7 @@ const insertReference = async () => {
 				if (customId) {
 					ref = customId[1];
 				} else {
-					ref = slugger.slug(line.replace(/^#+ /, '').trim());
+					ref = slugger.slug(extractHeaderText(line));
 				}
 				headers.push({
 					label: line

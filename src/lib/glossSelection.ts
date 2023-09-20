@@ -45,7 +45,7 @@ const glossSelection = async () => {
     return;
   }
   const rootDir = folders[0].uri;
-  const glossaryFileUri = vscode.Uri.joinPath(rootDir, "site/pages/help/glossary.md");
+  const glossaryFileUri = vscode.Uri.joinPath(rootDir, "site/pages/help/glossary.mdx");
   // read contents of glossary:
   const glossaryFile = await vscode.workspace.fs.readFile(glossaryFileUri);
   const glossaryFileString = new TextDecoder().decode(glossaryFile);

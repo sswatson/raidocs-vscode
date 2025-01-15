@@ -17,6 +17,9 @@ importers:
       '@vscode/vsce':
         specifier: ^3.2.1
         version: 3.2.1
+      cheerio:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@types/mocha':
         specifier: ^10.0.10

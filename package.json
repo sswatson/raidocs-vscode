@@ -20,12 +20,24 @@
   "contributes": {
     "commands": [
       {
-        "command": "raidocs.runPythonCodeBlock",
-        "title": "RelationalAI Docs: Run Python Code Block"
+        "command": "raidocs.runPythonCode",
+        "title": "raidocs: Run Python Code"
+      },
+      {
+        "command": "raidocs.openJupyterInBrowser",
+        "title": "raidocs: Open Jupyter in Browser"
       },
       {
         "command": "raidocs.restartKernel",
-        "title": "RelationalAI Docs: Restart Kernel"
+        "title": "raidocs: Restart Jupyter Kernel"
+      },
+      {
+        "command": "raidocs.stopServer",
+        "title": "raidocs: Stop Jupyter Server"
+      },
+      {
+        "command": "raidocs.insertImage",
+        "title": "raidocs: Insert Image"
       }
     ]
   },
@@ -62,6 +74,7 @@
   "dependencies": {
     "@jupyterlab/services": "^7.3.4",
     "@vscode/debugadapter": "^1.68.0",
-    "@vscode/vsce": "^3.2.1"
+    "@vscode/vsce": "^3.2.1",
+    "cheerio": "^1.0.0"
   }
 }

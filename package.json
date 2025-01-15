@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/sswatson/raidocs-vscode"
   },
-  "version": "0.1.14",
+  "version": "0.1.15",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -22,6 +22,10 @@
       {
         "command": "raidocs.runPythonCode",
         "title": "raidocs: Run Python Code"
+      },
+      {
+        "command": "raidocs.runSqlCode",
+        "title": "raidocs: Run SQL Code"
       },
       {
         "command": "raidocs.openJupyterInBrowser",
@@ -43,7 +47,18 @@
         "command": "raidocs.insertImage",
         "title": "raidocs: Insert Image"
       }
-    ]
+    ],
+    "configuration": {
+    "type": "object",
+    "title": "RAIDocs Settings",
+    "properties": {
+      "raidocs.virtualEnvDirectory": {
+        "type": "string",
+        "default": ".venv",
+        "description": "The name of the virtual environment directory to use for the Jupyter server."
+      }
+    }
+  }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run prepackage",

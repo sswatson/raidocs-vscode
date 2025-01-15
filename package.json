@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/sswatson/raidocs-vscode"
   },
-  "version": "0.1.13",
+  "version": "0.1.14",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -34,6 +34,10 @@
       {
         "command": "raidocs.stopServer",
         "title": "raidocs: Stop Jupyter Server"
+      },
+      {
+        "command": "raidocs.insertReference",
+        "title": "raidocs: Insert Reference"
       },
       {
         "command": "raidocs.insertImage",
@@ -73,8 +77,11 @@
   },
   "dependencies": {
     "@jupyterlab/services": "^7.3.4",
+    "@types/markdown-it": "^14.1.2",
     "@vscode/debugadapter": "^1.68.0",
     "@vscode/vsce": "^3.2.1",
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "github-slugger": "^2.0.0",
+    "markdown-it": "^14.1.0"
   }
 }

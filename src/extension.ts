@@ -3,6 +3,7 @@ import { ServerConnection, KernelManager, Kernel } from "@jupyterlab/services";
 import * as path from "path";
 import * as vscode from "vscode";
 import * as cheerio from "cheerio";
+import { insertReference } from "./reference.js";
 
 let kernel: Kernel.IKernelConnection | null = null;
 let jupyterProcess: ReturnType<typeof spawn> | null = null;
@@ -322,12 +323,18 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const insertReferenceCommand = vscode.commands.registerCommand(
+    "raidocs.insertReference",
+    insertReference
+  );
+
   context.subscriptions.push(
     runPythonCodeCommand,
     restartKernelCommand,
     openJupyterInBrowserCommand,
     stopServerCommand,
-    insertImageCommand
+    insertImageCommand,
+    insertReferenceCommand,
   );
 }
 

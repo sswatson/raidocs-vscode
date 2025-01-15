@@ -15,3 +15,5 @@ You can also select an interval of text in your editor and invoke the *Run Pytho
 **Open Jupyter in Browser**. Your code exection is running against a Jupyter kernel. You can launch a Jupyter notebook that connects to this kernel by invoking the command `"RelationalAI Docs: Open Jupyter in Browser"`. There are also commands to restart and to stop this kernel.
 
 **Insert Image**. Invoke the command `"RelationalAI Docs: Insert Image"` to insert an image in your markdown file. The image will be copied to the `public/img` folder in your project directory and the path to the image will be inserted in the markdown file.
+
+**Insert Reference**. Invoke the command `"RelationalAI Docs: Insert Reference"` to docs reference in your Markdown file. You will get a searchable list of every heading and document in the project.
